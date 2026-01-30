@@ -32,8 +32,13 @@ If you encounter bugs, have ideas for improvements, or want new features, you ca
 
 ## Preview
 ### Settings Page
-![Settings page photo](https://github.com/olekdrabina/letterboxdEnchaner/blob/main/assets/settings_page.png)
+
+<img src="https://github.com/olekdrabina/letterboxdEnchaner/blob/main/assets/settings_page.png" width="300">
+
 ### Rating Hidden
-![Rating hidden photo](https://github.com/olekdrabina/letterboxdEnchaner/blob/main/assets/rating_hidden.png)
+
+<img src="https://github.com/olekdrabina/letterboxdEnchaner/blob/main/assets/rating_hidden.png" width="500">
+
 ### Rating Shown
-![Rating shown photo](https://github.com/olekdrabina/letterboxdEnchaner/blob/main/assets/rating_shown.png)
+
+<img src="https://github.com/olekdrabina/letterboxdEnchaner/blob/main/assets/rating_shown.png" width="500">
