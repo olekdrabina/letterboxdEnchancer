@@ -2,18 +2,18 @@
 Enhances the Letterboxd site with a range of useful quality-of-life improvements for a cleaner, more focused experience
 
 - This extension has not been tested on Pro or Patron accounts
-- Firefox is not currently supported, but support is planned
+- Firefox is not currently supported
 
 ## Features
-- Adds a toggle button on film pages to show or hide:
-  - Movie ratings
-  - Movie reviews
-  - Friend’s ratings
-  - Movie likes
-  - Top 250 letterboxd crown
-- Automatically hides ratings for unwatched movies and shows them when watched
-- Removes ads, banners, and 'Upgrade to Pro' prompts
-- Miscellaneous interface and functionality improvements
+- **Settings page to customize your extension, making all features optional**
+- Film page customizations:
+  - Adds a show/hide button for ratings, watches, list appearances, likes, Top 250 crown, friends’ ratings and reviews, popular/recent reviews, and more
+  - Hides “Where to watch” section when not streaming
+  - Hides news and “Mentioned By” sectionsliked
+- Other improvements:
+  - Blocks ads
+  - Expands reviews and network pages for better readability
+  - Ensures consistent border-radius styling on people pages
 
 ## Installation
 1. Clone this repository or download the ZIP file and extract it
@@ -31,6 +31,8 @@ If you encounter bugs, have ideas for improvements, or want new features, you ca
 - **Contribute:** Fork the repository, make changes, and submit a pull request
 
 ## Preview
+### Settings Page
+![Settings page photo](https://github.com/olekdrabina/letterboxdEnchaner/blob/main/assets/settings_page.png)
 ### Rating Hidden
 ![Rating hidden photo](https://github.com/olekdrabina/letterboxdEnchaner/blob/main/assets/rating_hidden.png)
 ### Rating Shown
