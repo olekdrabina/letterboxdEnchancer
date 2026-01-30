@@ -27,7 +27,7 @@ Enhances the Letterboxd site with a range of useful quality-of-life improvements
 ## Issues & Suggestions
 If you encounter bugs, have ideas for improvements, or want new features, you can help:
 - **Report issues:** Use the [Issues](https://github.com/olekdrabina/letterboxdEnchaner/issues) page on GitHub to report bugs or unexpected behavior
-- **Suggest features:** Submit feature requests or suggestions through the same Issues page
+- **Suggest features:** Submit feature requests or suggestions through the same [Issues](https://github.com/olekdrabina/letterboxdEnchaner/issues) page
 - **Contribute:** Fork the repository, make changes, and submit a pull request
 
 ## Preview
