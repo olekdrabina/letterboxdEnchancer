@@ -3,11 +3,7 @@ function updateIcon(isEnabled) {
     chrome.action.setIcon({path: path})
 }
 
-<<<<<<< HEAD
 // check state when browser opens
-=======
-// hceck state when browser opens
->>>>>>> origin/main
 chrome.runtime.onStartup.addListener(() => {
     chrome.storage.local.get("extensionState", (data) => {
         const state = data.extensionState != undefined ? data.extensionState : true

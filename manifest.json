@@ -1,13 +1,8 @@
 {
     "manifest_version": 3,
     "name": "LetterboxdEnchancer",
-<<<<<<< HEAD
     "description": "Enhances the Letterboxd site with a range of useful quality-of-life improvements for a cleaner experience.",
     "version": "1.2.0",
-=======
-    "description": "Enhances the Letterboxd site with a range of useful quality-of-life improvements for a cleaner, more focused experience.",
-    "version": "1.1.5",
->>>>>>> origin/main
     "permissions": [
         "storage"
     ],
