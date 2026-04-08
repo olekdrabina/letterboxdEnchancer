@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // global functions
 function createTooltip(content, parent) {
     const tooltip = document.createElement("div")
@@ -43,6 +44,15 @@ chrome.storage.local.get(null, (settings) => {
         // === FILM PAGE ===
         if (window.location.href.startsWith("https://letterboxd.com/film/")) {
             if (settings.hideJustWatch) {
+=======
+chrome.storage.local.get(null, (data) => {
+    console.table(data)
+    if (data.extensionState) {
+        const selectorsToRemove = []
+        // === FILM PAGE ===
+        if (window.location.href.startsWith("https://letterboxd.com/film/")) {
+            if (data.hideJustWatch) {
+>>>>>>> origin/main
                 // where to watch – remove the parent if not streaming
                 const justWatchObserver = new MutationObserver((_, observer) => {
                     const justWatchMessage = document.querySelector("#watch > div.other.-message")
@@ -56,6 +66,7 @@ chrome.storage.local.get(null, (settings) => {
                 justWatchObserver.observe(document.body, {childList: true, subtree: true})
             }
 
+<<<<<<< HEAD
             if (settings.hideNews) {
                 selectorsToRemove.push("#film-page-wrapper > div.col-17 > section.section-margin.film-news")
             }
@@ -318,11 +329,21 @@ chrome.storage.local.get(null, (settings) => {
                     reviewWindow.selectionStart = reviewWindow.selectionEnd = start + before.length
                 }
             }
+=======
+            if (data.hideNews) {
+                selectorsToRemove.push("#film-page-wrapper > div.col-17 > section.section-margin.film-news")
+            }
+
+            if (data.hideMentionedBy) {
+                selectorsToRemove.push("#film-hq-mentions")
+            }
+>>>>>>> origin/main
         }
 
         // === HOME PAGE ===
 
         // === REVIEW HIDING FOR HOME/FILMS PAGE ===
+<<<<<<< HEAD
         if ((window.location.origin == "https://letterboxd.com" && window.location.pathname == "/") || window.location.pathname.startsWith("/films/")) {            
             const reviewsObserver = new MutationObserver(() => {
                 if (!settings.hidePopularReviewsHome && !settings.hidePopularReviewsFilms) return
@@ -334,6 +355,19 @@ chrome.storage.local.get(null, (settings) => {
                     const rating = container.querySelector("span.inline-rating")
                      const like = container.querySelector("span.inline-symbol:not(.inline-rating)")
 
+=======
+        if (window.location.href == "https://letterboxd.com/" || window.location.href.startsWith("https://letterboxd.com/films/")) {
+            const reviewsObserver = new MutationObserver(() => {
+                if (!data.hidePopularReviewsHome && !data.hidePopularReviewsFilms) return
+
+                let query
+                if (window.location.href == "https://letterboxd.com/") query = "#popular-reviews > div > div > div.header > div.details > div.content-reactions-strip.-viewing"
+                if (window.location.href.startsWith("https://letterboxd.com/films/")) query = "#popular-reviews > div > div > article > div.body > div.attribution-block.-large > div > span.content-reactions-strip.-viewing"
+                document.querySelectorAll(query).forEach(container => {
+                    const rating = container.querySelector("span.rating")
+                    const like = container.querySelector("span.icon-liked")
+                    
+>>>>>>> origin/main
                     if (container.dataset.initialized) return
                     if (window.location.href == "https://letterboxd.com/") container.style.display = "flex"
                     container.dataset.initialized = "1"
@@ -341,14 +375,21 @@ chrome.storage.local.get(null, (settings) => {
                     container.style.height = container.offsetHeight + "px"
 
                     let likeLabel = container.querySelector(".likeLabel")
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
                     const toggle = e => {
                         e.stopPropagation()
 
                         if (rating) {
                             const hidden = rating.dataset.hidden == "1"
                             rating.dataset.hidden = hidden ? "0" : "1"
+<<<<<<< HEAD
                             rating.textContent = hidden ? rating.dataset.originalText : "???"
+=======
+                            rating.textContent = hidden ? "" : "???"
+>>>>>>> origin/main
                             rating.className = hidden ? rating.dataset.originalClass : ""
                             if (like) {
                                 like.style.display = hidden ? "" : "none"
@@ -358,6 +399,7 @@ chrome.storage.local.get(null, (settings) => {
                         if (like && likeLabel) {
                             const hidden = likeLabel.dataset.hidden == "1"
                             likeLabel.dataset.hidden = hidden ? "0" : "1"
+<<<<<<< HEAD
                             likeLabel.textContent = hidden ? "♥" : "???"
                             like.style.display = hidden ? "" : "none"
                         }
@@ -365,6 +407,13 @@ chrome.storage.local.get(null, (settings) => {
 
                     if (rating) {
                         rating.dataset.originalText = rating.textContent
+=======
+                            likeLabel.textContent = hidden ? "" : "???"
+                            like.style.display = hidden ? "" : "none"
+                        }
+                    }
+                    if (rating) {
+>>>>>>> origin/main
                         rating.dataset.hidden = "1"
                         rating.dataset.originalClass = rating.className
                         rating.textContent = "???"
@@ -379,7 +428,10 @@ chrome.storage.local.get(null, (settings) => {
                             like.style.transition = "transform 0.2s"
                         }
                     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
                     if (!rating && like) {
                         if (!likeLabel) {
                             likeLabel = document.createElement("div")
@@ -399,6 +451,33 @@ chrome.storage.local.get(null, (settings) => {
                         like.style.cursor = "pointer"
                         like.style.transition = "transform 0.2s"
                     }
+<<<<<<< HEAD
+=======
+                    const applyHover = () => {
+                        if (rating) rating.style.transform = "scale(1.05)"
+                        if (like && like.style.display != "none") {
+                            like.style.transform = "scale(1.05)"
+                        }
+                        if (likeLabel) likeLabel.style.color = "#8899aa"
+                    }
+                    const removeHover = () => {
+                        if (rating) rating.style.transform = "scale(1)"
+                        if (like) like.style.transform = "scale(1)"
+                        if (likeLabel) likeLabel.style.color = ""
+                    }
+                    if (rating) {
+                        rating.addEventListener("mouseenter", applyHover)
+                        rating.addEventListener("mouseleave", removeHover)
+                    }
+                    if (like) {
+                        like.addEventListener("mouseenter", applyHover)
+                        like.addEventListener("mouseleave", removeHover)
+                    }
+                    if (likeLabel) {
+                        likeLabel.addEventListener("mouseenter", applyHover)
+                        likeLabel.addEventListener("mouseleave", removeHover)
+                    }
+>>>>>>> origin/main
 
                     if (rating) rating.addEventListener("click", toggle)
                     if (like) like.addEventListener("click", toggle)
@@ -413,6 +492,7 @@ chrome.storage.local.get(null, (settings) => {
 
         // === FILMS PAGE ===
         if (window.location.href.startsWith("https://letterboxd.com/films/")) {
+<<<<<<< HEAD
             document.querySelector("#popular-films > div > div > div > ul").querySelectorAll("li.posteritem").forEach(poster => {
                 poster.querySelector("div.production-statistic-list")
             })
@@ -421,25 +501,42 @@ chrome.storage.local.get(null, (settings) => {
                 const posters = document.querySelector("#popular-films > div > div > div > ul")
                 if (posters) {
                     if (settings.hidePopularFilmsWatchesFilms) {
+=======
+            const postersObserver = new MutationObserver((_, observer) => {
+                const posters = document.querySelector("#popular-films > div > div > div > ul")
+                if (posters) {
+                    if (data.hidePopularFilmsWatchesFilms) {
+>>>>>>> origin/main
                         document.querySelectorAll("#popular-films > div > div > div > ul > li > div.production-statistic-list > div.production-statistic.-watches").forEach(watches => {
                             watches.remove()
                         })
                     }
+<<<<<<< HEAD
                     if (settings.hidePopularFilmsListsFilms) {
+=======
+                    if (data.hidePopularFilmsListsFilms) {
+>>>>>>> origin/main
                         document.querySelectorAll("#popular-films > div > div > div > ul > li > div.production-statistic-list > div.production-statistic.-lists").forEach(lists => {
                             lists.remove()
                         })
                     }
+<<<<<<< HEAD
                     if (settings.hidePopularFilmsLikesFilms) {
+=======
+                    if (data.hidePopularFilmsLikesFilms) {
+>>>>>>> origin/main
                         document.querySelectorAll("#popular-films > div > div > div > ul > li > div.production-statistic-list > div.production-statistic.-likes").forEach(likes => {
                             likes.remove()
                         })
                     }
+<<<<<<< HEAD
                     if (settings.hidePopularFilmsTop500Films) {
                         document.querySelectorAll("#popular-films > div > div > div > ul > li > div.production-statistic-list > div.production-statistic.-topFilms").forEach(top500 => {
                             top500.remove()
                         })
                     }
+=======
+>>>>>>> origin/main
                 }
             })
             postersObserver.observe(document.body, {childList: true, subtree: true})
@@ -447,12 +544,17 @@ chrome.storage.local.get(null, (settings) => {
 
         // === OTHER ===
         function other() {
+<<<<<<< HEAD
             if (settings.adblock) {
+=======
+            if (data.adblock) {
+>>>>>>> origin/main
                 const ads = Array.from(document.querySelectorAll('div.banner.banner-950.js-hide-in-app, div.banner.banner-250.js-hide-in-app, div.banner.banner-230.js-hide-in-app')).filter(ad =>
                     ad.querySelector('a[href="/pro/?utm_medium=banner&utm_campaign=get-pro"]')
                 )
                 ads.forEach(ad => ad.remove())
                 document.querySelectorAll(".upgrade-kicker").forEach(kicker => kicker.remove())
+<<<<<<< HEAD
                 
                 const justWatchProObserver = new MutationObserver((_, observer) => {
                     const justWatchPro = document.querySelector("#watch > div.other.-message")
@@ -460,13 +562,21 @@ chrome.storage.local.get(null, (settings) => {
                 })
                 justWatchProObserver.observe(document.body, {childList: true, subtree: true})
                 const filmPageAdObserver = new MutationObserver((_, observer) => {
+=======
+
+                const filmPagePatronAdObserver = new MutationObserver((_, observer) => {
+>>>>>>> origin/main
                     const link = Array.from(document.querySelectorAll("#userpanel a")).find(a => a.href.includes("/pro/"))
                     if (link) {
                         link.closest("li").remove()
                         observer.disconnect()
                     }
                 })
+<<<<<<< HEAD
                 filmPageAdObserver.observe(document.body, {childList: true, subtree: true})
+=======
+                filmPagePatronAdObserver.observe(document.body, {childList: true, subtree: true})
+>>>>>>> origin/main
 
                 selectorsToRemove.push("#content > div > div > aside > section.activity-settings.js-activity-filters.pro-message > form > small")
                 const activitySettingsForm = document.querySelector("#content > div > div > aside > section.activity-settings.js-activity-filters.pro-message > form")
@@ -479,11 +589,19 @@ chrome.storage.local.get(null, (settings) => {
 
             // make reviews & network page wider
             if ((window.location.href.endsWith("/reviews/") && !window.location.href.includes("film")) || window.location.href.endsWith("/following/")) {
+<<<<<<< HEAD
                 if (settings.reviewsPageWider) {
                     const reviews = document.querySelector("#content > div > section.section.col-main.overflow.col-17")
                     if (reviews) reviews.style.width = "100%"
                 }
                 if (settings.networkPageWider) {
+=======
+                if (data.reviewsPageWider) {
+                    const reviews = document.querySelector("#content > div > section.section.col-main.overflow.col-17")
+                    if (reviews) reviews.style.width = "100%"
+                }
+                if (data.networkPageWider) {
+>>>>>>> origin/main
                     const network = document.querySelector("#content > div > div > section")
                     if (network) network.style.width = "100%"
                 }
@@ -495,7 +613,11 @@ chrome.storage.local.get(null, (settings) => {
         }
         other()
 
+<<<<<<< HEAD
         // === remove selectors ===
+=======
+        // ===== remove selectors =====
+>>>>>>> origin/main
         selectorsToRemove.forEach(selector => {
             const observer = new MutationObserver((_, observer) => {
                 const selectorHTML = document.querySelector(selector)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - release in chrome web store
 - firefox support
 
@@ -44,6 +45,31 @@ every feature is avaible in settings for full customization
 - move "LATEST NEWS" under "POPULAR LISTS" on main page
 - convert all ratings to 5 or 10 point scale option
 - hide rating on reviews page and hide ratings of liked reviews there - https://letterboxd.com/urpalbeth/film/the-watermelon-woman/1/
+=======
+changes:
+- split settings by page
+- hidePopularFilmsWeek watches & likes & lists
+- hidePopularReviewsRating on home & films page
+- faster hide rating loading
+
+- show popular reviews when watched
+
+- import export
+- release in chrome web store
+- firefox support
+- hide tv shows & short films on default
+- more than letterboxd top250
+- hide likes & top250 on "POPULAR FILMS THIS WEEK"
+- hide ratings in "POPULAR REVIES THIS WEEK" & "NEW FROM FRIENDS"
+- something custom on film page for some movies (default off)
+- mpa rating
+- hide ratings in "REVIEWS YOU LIKED" on film page
+- defaults search films
+- go to film butotn (3 dots when hovering on movie from "NEW FROM FRIENDS")
+- move "LATEST NEWS" under "POPULAR LISTS" on main pagegit
+- convert all ratings to 5 or 10 point scale
+- hide rating on reviews page and hide ratings of liked reviews there
+>>>>>>> origin/main
 - hide show supported html, reviews & list description editor enchancer (adding supported html with one click - <a href=""> <strong> <em> <b> <i> <blockquote>)
 - remove from filters:
     - show custom posters
@@ -57,12 +83,20 @@ every feature is avaible in settings for full customization
     - rotten tomatoes
     - metacritic
     - myanimelist
+<<<<<<< HEAD
 - show other rating setting for each site
+=======
+- show more/less ratings button for additional film ratings
+>>>>>>> origin/main
 - awards on people pages:
     - oscar wins & nominees
     - bafta wins & nominees
     - golden globe wins & nominees
+<<<<<<< HEAD
 - additional top film rankings next to letterboxd top250: (maybe in details only or also)
+=======
+- additional top film rankings next to letterboxd top250:
+>>>>>>> origin/main
     AWARDS: (show awards on click)
         - oscar wins & nominees
         - bafta wins & nominees
@@ -70,12 +104,27 @@ every feature is avaible in settings for full customization
     LISTS: (letterboxd list on click)
     - "They Shoot Pictures, Don't They?" top 1000 
     - "BFI Sight and Sound" top 250
+<<<<<<< HEAD
 - additional "More details at" on people pages:
     - imdb
 - show wide release date when hovering on year (maybe on top of releases too)
+=======
+- additional "More at" on film page:
+    - wiki
+- additional "More details at" on people pages:
+    - imdb
+    - wiki
+- show wide release date on top in releases and when hovering on year
+- budget & box office in details tab
+- hours and minutes in modal on duration hover
+>>>>>>> origin/main
 - in the place of "FANS":
     - fans
     - ratings count
     - both side by side
+<<<<<<< HEAD
 - preview for html formatter
 - change white background for search bar at the top
+=======
+- import/export settings
+>>>>>>> origin/main

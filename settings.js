@@ -13,16 +13,26 @@ async function loadSetting(key, defaultValue) {
 
 // settings list
 const settings = [
+<<<<<<< HEAD
     {name: "<b>Extension Toggle</b>", key: "extensionState", special: "masterSwitch"},
     {content: "SHOW/HIDE RATING"},
     {name: "Show/hide button", state: true, key: "showHideButton"},
     {name: "Show/hide button for unreleased", state: false, key: "showHideButtonUnreleased"},
     {name: "All below for unreleased", state: false, key: "hideUnreleased"},
+=======
+    {name: "<b>All Features Toggle</b>", key: "extensionState", special: "masterSwitch"},
+    {content: "SHOW/HIDE RATING"},
+    {name: "Generate show/hide button", state: true, key: "generateShowHideButton"},
+>>>>>>> origin/main
     {name: "Hide rating", state: true, key: "hideRating"},
     {name: "Hide watches", state: false, key: "hideWatches"},
     {name: "Hide list appears", state: false, key: "hideListAppears"},
     {name: "Hide likes", state: true, key: "hideLikes"},
+<<<<<<< HEAD
     {name: "Hide top500", state: true, key: "hideTop500"},
+=======
+    {name: "Hide top250", state: true, key: "hideTop250"},
+>>>>>>> origin/main
     {name: "Hide friends ratings", state: true, key: "hideFriendsRatings"},
     {name: "Hide friends reviews", state: true, key: "hideFriendsReviews"},
     {name: "Hide popular reviews", state: true, key: "hidePopularReviews"},
@@ -32,6 +42,7 @@ const settings = [
     {name: "Hide your lists", state: false, key: "hideYourLists"},
     {name: "Hide lists you liked", state: true, key: "hideListsYouLiked"},
     {content: "FILM PAGE"},
+<<<<<<< HEAD
     {name: "Line break after film title", state: true, key: "filmTitleBr"},
     {name: "Mpa rating", state: true, key: "mpaRating"},
     {name: "Box office in details", state: true, key: "boxOffice"},
@@ -40,6 +51,9 @@ const settings = [
     {name: "Wiki button at more at", state: true, key: "wikiButton"},
     {name: "Mojo button at more at" , state: true, key: "mojoButton"},
     {name: "Hide \"where to watch\" when not streaming", state: false, key: "hideJustWatch"},
+=======
+    {name: "Hide \"where to watch\" when not streaming", state: true, key: "hideJustWatch"},
+>>>>>>> origin/main
     {name: "Hide news", state: true, key: "hideNews"},
     {name: "Hide \"Mentioned By\"", state: true, key: "hideMentionedBy"},
     {content: "HOME PAGE"},
@@ -47,6 +61,7 @@ const settings = [
     {content: "FILMS PAGE"},
     {name: "Hide watches from popular films", state: false, key: "hidePopularFilmsWatchesFilms"},
     {name: "Hide list appears from popular films", state: false, key: "hidePopularFilmsListsFilms"},
+<<<<<<< HEAD
     {name: "Hide likes from popular films", state: true, key: "hidePopularFilmsLikesFilms"},
     {name: "Hide top500 from popular films", state: true, key: "hidePopularFilmsTop500Films"},
     {name: "Hide ratings from popular reviews", state: true, key: "hidePopularReviewsFilms"},
@@ -56,6 +71,15 @@ const settings = [
     {name: "Ad block", state: true, key: "adblock"},
     {name: "Wider reviews page", state: true, key: "reviewsPageWider"},
     {name: "Wider network page", state: true, key: "networkPageWider"},
+=======
+    {name: "Hide likes from popular films", state: false, key: "hidePopularFilmsLikesFilms"},
+    {name: "Hide ratings from popular reviews", state: true, key: "hidePopularReviewsFilms"},
+    {content: "OTHER"},
+    {name: "Ad block", state: true, key: "adblock"},
+    {name: "Make reviews page wider", state: true, key: "reviewsPageWider"},
+    {name: "Make network page wider", state: true, key: "networkPageWider"},
+    {name: "Consistent border-radius on people pages", state: true, key: "peopleShare"},
+>>>>>>> origin/main
     {content: " "}
 ]
 
