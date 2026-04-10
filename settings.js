@@ -1,62 +1,60 @@
+import {defaults} from "./defaults.js"
+
 // chrome storage
 async function saveSetting(key, value) {
-    await chrome.storage.local.set({ [key]: value })
+    await chrome.storage.local.set({[key]: value})
 }
-async function loadSetting(key, defaultValue) {
+async function loadSetting(key) {
     const result = await chrome.storage.local.get([key])
-    if (result[key] == undefined) {
-        await saveSetting(key, defaultValue)
-        return defaultValue
-    }
-    return result[key]
+    return result[key] ?? defaults[key]
 }
 
-// settings list
 const settings = [
     {name: "<b>Extension Toggle</b>", key: "extensionState", special: "masterSwitch"},
     {content: "SHOW/HIDE STATISTICS"},
-    {name: "Show/hide button", state: true, key: "showHideButton"},
-    {name: "Show/hide button for unreleased", state: false, key: "showHideButtonUnreleased"},
-    {name: "All below for unreleased", state: false, key: "hideUnreleased"},
-    {name: "Hide rating", state: true, key: "hideRating"},
-    {name: "Hide watches", state: false, key: "hideWatches"},
-    {name: "Hide list ", state: false, key: "hideListAppears"},
-    {name: "Hide likes", state: true, key: "hideLikes"},
-    {name: "Hide top500", state: true, key: "hideTop500"},
-    {name: "Hide friends ratings", state: true, key: "hideFriendsRatings"},
-    {name: "Hide friends reviews", state: true, key: "hideFriendsReviews"},
-    {name: "Hide popular reviews", state: true, key: "hidePopularReviews"},
-    {name: "Hide recent reviews", state: true, key: "hideRecentReviews"},
-    {name: "Hide similar films", state: false, key: "hideSimilarFilms"},
-    {name: "Hide popular lists", state: true, key: "hidePopularLists"},
-    {name: "Hide your lists", state: false, key: "hideYourLists"},
-    {name: "Hide lists you liked", state: true, key: "hideListsYouLiked"},
+    {name: "Show/hide button", key: "showHideButton"},
+    {name: "Show/hide button for unreleased", key: "showHideButtonUnreleased"},
+    {name: "All below for unreleased", key: "hideUnreleased"},
+    {name: "Hide rating", key: "hideRating"},
+    {name: "Hide watches", key: "hideWatches"},
+    {name: "Hide list", key: "hideListAppears"},
+    {name: "Hide likes", key: "hideLikes"},
+    {name: "Hide top500", key: "hideTop500"},
+    {name: "Hide friends ratings", key: "hideFriendsRatings"},
+    {name: "Hide friends reviews", key: "hideFriendsReviews"},
+    {name: "Hide popular reviews", key: "hidePopularReviews"},
+    {name: "Hide recent reviews", key: "hideRecentReviews"},
+    {name: "Hide related films", key: "hideRelatedFilms"},
+    {name: "Hide similar films", key: "hideSimilarFilms"},
+    {name: "Hide popular lists", key: "hidePopularLists"},
+    {name: "Hide your lists", key: "hideYourLists"},
+    {name: "Hide lists you liked", key: "hideListsYouLiked"},
     {content: "FILM PAGE"},
-    {name: "Line break after film title", state: true, key: "filmTitleBr"},
-    {name: "Mpa rating", state: true, key: "mpaRating"},
-    {name: "Box office in details", state: true, key: "boxOffice"},
-    {name: "Budget in details", state: true, key: "budget"},
-    {name: "Friendly runtime", state: true, key: "friendlyRuntime"},
-    {name: "Wiki button at more at", state: true, key: "wikiButton"},
-    {name: "Mojo button at more at" , state: true, key: "mojoButton"},
-    {name: "Hide \"where to watch\" when not streaming", state: false, key: "hideJustWatch"},
-    {name: "Hide news", state: true, key: "hideNews"},
-    {name: "Hide \"Mentioned By\"", state: true, key: "hideMentionedBy"},
+    {name: "Line break after film title", key: "filmTitleBr"},
+    {name: "Mpa rating", key: "mpaRating"},
+    {name: "Box office in details", key: "boxOffice"},
+    {name: "Budget in details", key: "budget"},
+    {name: "Friendly runtime", key: "friendlyRuntime"},
+    {name: "Wiki button at more at", key: "wikiButton"},
+    {name: "Mojo button at more at", key: "mojoButton"},
+    {name: "Hide \"where to watch\" when not streaming", key: "hideJustWatch"},
+    {name: "Hide news", key: "hideNews"},
+    {name: "Hide \"Mentioned By\"", key: "hideMentionedBy"},
     {content: "HOME PAGE"},
-    {name: "Hide ratings from popular reviews", state: true, key: "hidePopularReviewsHome"},
+    {name: "Hide ratings from popular reviews", key: "hidePopularReviewsHome"},
     {content: "FILMS PAGE"},
-    {name: "Hide watches from popular films", state: false, key: "hidePopularFilmsWatchesFilms"},
-    {name: "Hide list appears from popular films", state: false, key: "hidePopularFilmsListsFilms"},
-    {name: "Hide likes from popular films", state: true, key: "hidePopularFilmsLikesFilms"},
-    {name: "Hide top500 from popular films", state: true, key: "hidePopularFilmsTop500Films"},
-    {name: "Hide ratings from popular reviews", state: true, key: "hidePopularReviewsFilms"},
+    {name: "Hide watches from popular films", key: "hidePopularFilmsWatchesFilms"},
+    {name: "Hide list appears from popular films", key: "hidePopularFilmsListsFilms"},
+    {name: "Hide likes from popular films", key: "hidePopularFilmsLikesFilms"},
+    {name: "Hide top500 from popular films", key: "hidePopularFilmsTop500Films"},
+    {name: "Hide ratings from popular reviews", key: "hidePopularReviewsFilms"},
     {content: "OTHER"},
-    {name: "Ad block", state: true, key: "adblock"},
-    {name: "Review formatting buttons", state: true, key: "reviewFormattingButtons"},
-    {name: "Review formatting shortcuts", state: true, key: "reviewFormattingShortcuts"},
-    {name: "Wider reviews page", state: true, key: "reviewsPageWider"},
-    {name: "Wider network page", state: true, key: "networkPageWider"},
-    {name: "Darkmode search bars", state: true, key: "darkmodeSearchBars"},
+    {name: "Ad block", key: "adblock"},
+    {name: "Review formatting buttons", key: "reviewFormattingButtons"},
+    {name: "Review formatting shortcuts", key: "reviewFormattingShortcuts"},
+    {name: "Wider reviews page", key: "reviewsPageWider"},
+    {name: "Wider network page", key: "networkPageWider"},
+    {name: "Darkmode search bars", key: "darkmodeSearchBars"},
     {content: " "}
 ]
 
@@ -77,12 +75,10 @@ function isExtensionOn(extensionState) {
 // main function
 async function init() {
     let extensionState = await loadSetting("extensionState", true)
-    
     const iconPath = extensionState ? "assets/logo/16.png" : "assets/logo/16_off.png"
     chrome.action.setIcon({ path: iconPath })
 
     const settingsContainer = document.querySelector(".settings")
-
     for (const setting of settings) {
         if (!setting.content) {
             let settingDiv = document.createElement("div")
@@ -169,9 +165,44 @@ async function init() {
 }
 init()
 
+// buttons
 document.querySelector(".restoreDefault").addEventListener("click", () => {
     if (confirm("Reset all settings to defaults?")) {
         chrome.storage.local.clear()
         window.location.reload()
+    }
+})
+
+document.querySelector(".export.button").addEventListener("click", async () => {
+    const allSettings = await chrome.storage.local.get(null)
+    const json = JSON.stringify(allSettings, null, 2)
+    const blob = new Blob([json], {type: "application/json"})
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = "settings.json"
+    a.click()
+    URL.revokeObjectURL(url)
+})
+
+document.querySelector(".import.button").addEventListener("click", () => {
+    if (confirm("Import settings and replace your current ones?")) {
+        const input = document.createElement("input")
+        input.type = "file"
+        input.accept = "application/json"
+        input.addEventListener("change", async () => {
+            const file = input.files[0]
+            if (!file) return
+            try {
+                const text = await file.text()
+                const parsed = JSON.parse(text)
+                await chrome.storage.local.clear()
+                await chrome.storage.local.set(parsed)
+                window.location.reload()
+            } catch (e) {
+                alert("Invalid file")
+            }
+        })
+        input.click()
     }
 })

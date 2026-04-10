@@ -1,12 +1,7 @@
 IMPORTANT:
 - release in chrome web store
 - firefox support
-- make settings apply immediately
 
-- hide (all default off): 
-    - reviews you liked
-    - hide related films
-    - runtime
 - hide/show rating shortcut
 - display likes, films per day/week/month on profile pages
 - split banner ads and feature ads into 2 settings (include activity filter ad to adblock)

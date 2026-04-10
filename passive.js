@@ -1,3 +1,4 @@
+chrome.storage.local.get(null, (data) => console.log(data))
 // global functions
 function createTooltip(content, parent) {
     const tooltip = document.createElement("div")
@@ -151,7 +152,6 @@ chrome.storage.local.get(null, (settings) => {
                 const text = await res.text()
                 const data = JSON.parse(text)
 
-                console.log("letterboxd-enchancer wikidata:")
                 console.log(data.results.bindings[0])
                 if (data.results.bindings[0]) {
                     // budget & box office

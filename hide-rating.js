@@ -60,6 +60,9 @@ if (window.location.href.startsWith("https://letterboxd.com/film/")) {
                 if (settings.hideSimilarFilms) {
                     hideSelectors.push("#film-page-wrapper > div.col-17 > section.section.related-films.-clear")
                 }
+                if (settings.hideRelatedFilms) {
+                    hideSelectors.push("#related")
+                }
 
                 if (settings.hidePopularLists) {
                     hideSelectors.push("#production-popular-lists")
@@ -85,7 +88,7 @@ if (window.location.href.startsWith("https://letterboxd.com/film/")) {
             if (!isReleased) {
                 buttonExist = settings.showHideButtonUnreleased
             } else if (isReleased) {
-                buttonExist = settings.generateShowHideButton
+                buttonExist = settings.showHideButton
             }
             function hideStatistics() {
                 if (buttonExist) {

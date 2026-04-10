@@ -1,3 +1,6 @@
 maybe delete this file before new release or smth idk
 
 - darkmode search bars
+- hide related films option
+- fixed default settings not loading on extension install
+- fixed settings import & export 
