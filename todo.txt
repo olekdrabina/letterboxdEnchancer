@@ -3,7 +3,6 @@ IMPORTANT:
 - firefox support
 
 - mark tv series as tv series
-- darker world flag
 - hide reviews and likes and top500 on activity (https://letterboxd.com/film/the-wolf-of-wall-street/reviews/by/activity/)
 - darkmode reviews/editing list
 - hide box shadow on clicking dark mode inputs

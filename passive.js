@@ -152,7 +152,7 @@ chrome.storage.local.get(null, (settings) => {
             }
             const movieSlug = document.querySelector("#poster-modal > div > div > div.modal-body > div").dataset.itemSlug
             const imdbEl = document.querySelector('a[href*="imdb.com/title/"]')
-            const tmdbEl = document.querySelector('a[href*="themoviedb.org/movie/"]')
+            const tmdbEl = document.querySelector('a[href*="themoviedb.org/"]')
             const imdbID = imdbEl?.href?.split("/")[4]
             const tmdbID = tmdbEl?.href?.split("/")[4]
             async function useWikidata() {
@@ -382,6 +382,19 @@ chrome.storage.local.get(null, (settings) => {
                         wideTitle.after(wideTable)
                     }
                 }
+            }
+            console.log(tmdbEl.href.split("/")[3])
+            if (tmdbEl.href.split("/")[3] == "tv") {
+                const headline = document.querySelector("#film-page-wrapper > div.col-17 > section.production-masthead.-shadowed.-productionscreen.-film > div > h1")
+                headline.style.display = "flex"
+                let tvSpan = document.createElement("span")
+                tvSpan.style.marginLeft = "5px"
+                let tvIcon = document.createElement("img")
+                tvIcon.src = "https://github.com/olekdrabina/letterboxdEnhancer/blob/main/assets/tv_icon.png?raw=true"
+                tvIcon.alt = "TV icon"
+                tvIcon.style.height = "35.5px"
+                tvSpan.appendChild(tvIcon)
+                headline.appendChild(tvSpan)
             }
         }
 
