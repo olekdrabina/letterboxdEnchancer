@@ -41,14 +41,8 @@ chrome.storage.local.get(null, (settings) => {
     if (settings.extensionState) {
         const selectorsToRemove = []
         // === MOVIE PAGE ===
-        if (
-            window.location.href.startsWith("https://letterboxd.com/film/") && 
-            !window.location.href.endsWith("/members/") &&
-            !window.location.href.endsWith("/fans/") &&
-            !window.location.href.endsWith("/likes/") &&
-            !window.location.href.endsWith("/reviews/") &&
-            !window.location.href.endsWith("/lists/")
-        ) {
+        console.log(window.location.href.split("/"))
+        if (window.location.href.startsWith("https://letterboxd.com/film/") && window.location.href.split("/").length == 6) {
             // hide where to watch
             if (settings.hideJustWatch) {
                 const justWatchObserver = new MutationObserver((_, observer) => {
@@ -403,13 +397,13 @@ chrome.storage.local.get(null, (settings) => {
                 }
 
                 const movieType = tmdbEl.href.split("/")[3]
+                const headline = document.querySelector("#film-page-wrapper > div.col-17 > section.production-masthead.-shadowed.-productionscreen.-film > div > h1")
                 function createIcon(src, tooltip) {
-                    const headline = document.querySelector("#film-page-wrapper > div.col-17 > section.production-masthead.-shadowed.-productionscreen.-film > div > h1")
                     headline.style.display = "inline-flex"
-                    headline.style.alignItems = "center"
+                    headline.style.alignItems = "end"
                     let span = document.createElement("span")
-                    span.style.height = "min-content"
                     span.style.marginRight = "6px"
+                    span.style.marginBottom = "7px"
                     createTooltip(tooltip, span)
                     let icon = document.createElement("img")
                     icon.src = `https://raw.githubusercontent.com/olekdrabina/letterboxdEnhancer/main/assets/${src}.png`
@@ -427,6 +421,20 @@ chrome.storage.local.get(null, (settings) => {
                 if (settings.tvSeriesIcon && movieType == "tv") {
                     createIcon("tv_icon", "TV series")
                 }
+
+                // function countTitleWraps() {
+                //     const el = document.querySelector("#film-page-wrapper > div.col-17 > section.production-masthead.-shadowed.-productionscreen.-film > div > h1 > span.name.js-widont.prettify")
+                //     const range = document.createRange()
+                //     const lines = []
+                //     for (let i = 0; i < el.textContent.length; i++) {
+                //         range.setStart(el.firstChild, 0);
+                //         range.setEnd(el.firstChild, i + 1);
+
+                //         lines.push(range.getClientRects().length)
+                //     }
+                //     return Math.max(...lines)
+                // }
+                // console.log(countTitleWraps())
             }
 
             // br after title

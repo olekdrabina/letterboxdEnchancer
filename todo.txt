@@ -3,11 +3,10 @@ IMPORTANT:
 - firefox support
 - android test & support
 - microsoft edge support
-- mark tv series, short & and feature films all options
-- make extension work only where it needs not not: ERROR https://letterboxd.com/film/gullivers-travels-2010/similar/ & https://letterboxd.com/films/by/longest/
 
 - hide reviews and likes and top500 on activity (https://letterboxd.com/film/the-wolf-of-wall-street/reviews/by/activity/)
 - darkmode reviews/editing list
+- show statistics immediately after rating
 - hide box shadow on clicking dark mode inputs
 - formatting buttons in creating lists
 - hide/show rating shortcut
@@ -22,6 +21,9 @@ IMPORTANT:
 - cool progress bar as background for list names
 - automatically show rating for popular films this week and popular reviews when movie is watched
 - hide tv shows & short films on default
+- fix icons on 2+ title wraps
+- pinning lists
+- more settings types
 - more than letterboxd top500
 - maybe info button in settings (for certain settings)
 - hide ratings in "NEW FROM FRIENDS" (auto show when movie watched)
